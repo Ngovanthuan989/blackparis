@@ -48,13 +48,13 @@
         }
 
         @media screen and (min-width: 990px) {
-            header-drawer {
+            .header__icons__left {
                 display: none;
             }
         }
 
         .menu-drawer-container {
-            display: flex;
+            display: inline-block;
         }
 
         .list-menu {
@@ -124,97 +124,157 @@
     </svg>
     <div class="header-wrapper color-">
         <header class="header header--middle-left page-width header--has-menu">
-            <header-drawer data-breakpoint="tablet">
-                <details id="Details-menu-drawer-container" class="menu-drawer-container">
-                    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset"
-                             aria-label="Menu">
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation"
-                     class="icon icon-hamburger" fill="none" viewBox="0 0 18 16">
-                    <path d="M1 .5a.5.5 0 100 1h15.71a.5.5 0 000-1H1zM.5 8a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1A.5.5 0 01.5 8zm0 7a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1a.5.5 0 01-.5-.5z"
-                          fill="currentColor">
-                </svg>
+            <div class="header__icons__left" >
+                <header-drawer data-breakpoint="tablet">
+                    <details id="Details-menu-drawer-container header__left" class="menu-drawer-container">
+                        <summary class="header__icon header__icon--menu header__icon--summary link focus-inset open__menu icon__menu" style="margin-top: 5px"
+                                 aria-label="Menu">
+                             <span class="bar_icon">
 
-            </span>
-                    </summary>
-                    <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
-                        <div class="menu-drawer__inner-container">
-                            <div class="menu-drawer__navigation-container">
-                                <nav class="menu-drawer__navigation">
-                                    <ul class="menu-drawer__menu list-menu" role="list">
-                                        <li class="nb">
-                                            <div class="close_btn header__icon header__icon--menu header__icon--summary link focus-inset"
-                                                 aria-label="Menu">
-                                                <span>
-                                                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                                           focusable="false"
-                                                           role="presentation" class="icon icon-close" fill="#fff"
-                                                           viewBox="0 0 18 17">
-                                                            <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"
-                                                                  fill="#fff">
-                                                      <svg>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        @foreach (\App\Entity\Menu::showWithLocation('menu-top-1') as $menu)
-                                            @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
-                                                @if (empty($menuElement['children']))
-                                                    <li class="{{ Request::is($menuElement['url']) || $menuElement['url'] == "" || $menuElement['url'] == "/" ? 'active' : null }}">
+                            </span>
+                        </summary>
+
+                        <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
+                            <div class="menu-drawer__inner-container">
+                                <div class="menu-drawer__navigation-container">
+                                    <nav class="menu-drawer__navigation">
+                                        <ul class="menu-drawer__menu list-menu" role="list">
+                                            @foreach (\App\Entity\Menu::showWithLocation('menu-top-1') as $menu)
+                                                @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
+                                                    @if (empty($menuElement['children']))
+                                                        <li class="">
+                                                            <a href="{{ $menuElement['url'] }}"
+                                                               class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                                                                <span>{{ $menuElement['title_show'] }}</span>
+                                                            </a>
+                                                        </li>
+                                                    @else
+                                                        <details-disclosure>
+                                                            <details>
+                                                                <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                                                                <span>{{ $menuElement['title_show'] }}</span>
+                                                                    <svg viewBox="0 0 14 10" fill="none" aria-hidden="true"
+                                                                         focusable="false" role="presentation" class="icon icon-arrow"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                              d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                                                                              fill="currentColor">
+                                                                    </svg>
+
+                                                                    <svg aria-hidden="true" focusable="false" role="presentation"
+                                                                         class="icon icon-caret" viewBox="0 0 10 6">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                              d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                                                              fill="currentColor">
+                                                                    </svg>
+                                                                </summary>
+                                                                <div id="link-CLOTHING" class="menu-drawer__submenu motion-reduce"
+                                                                     tabindex="-1">
+                                                                    <div class="menu-drawer__inner-submenu">
+                                                                        <button class="menu-drawer__close-button link link--text focus-inset"
+                                                                                aria-expanded="true">
+                                                                            {{ $menuElement['title_show'] }}
+                                                                        </button>
+                                                                        <ul class="menu-drawer__menu list-menu" role="list"
+                                                                            tabindex="-1">
+                                                                            <li class="back link link--text list-menu__item focus-inset title__parrent"
+                                                                                style="text-align: center; padding: 0 15px">
+                                                                                <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset" style="width: 100%">
+                                                                                    <a class="menu-drawer__menu-item">{{ $menuElement['title_show'] }}</a>
+                                                                                    <svg viewBox="0 0 14 10" fill="none" aria-hidden="true"
+                                                                                         focusable="false" role="presentation" class="icon icon-arrow"
+                                                                                         xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                              d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                                                                                              fill="currentColor">
+                                                                                    </svg>
+
+                                                                                    <svg aria-hidden="true" focusable="false" role="presentation"
+                                                                                         class="icon icon-caret" viewBox="0 0 10 6">
+                                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                              d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                                                                                              fill="currentColor">
+                                                                                    </svg>
+                                                                                </summary>
+                                                                            </li>
+                                                                            @foreach ($menuElement['children'] as $elementparent)
+                                                                            <li>
+                                                                                <a href="{{ $elementparent['url'] }}"
+                                                                                   class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
+                                                                                    {{ $elementparent['title_show'] }}
+                                                                                </a>
+                                                                            </li>
+                                                                            @endforeach
+                                                                            <div class="menu__block--wide is-visible" style="transition-delay: 160ms;padding: 10px">
+                                                                                <div class="header__dropdown__image palette--contrast--dark" data-stagger-first="">
+                                                                                    <a href="{{ isset($information['link-image-menu']) ? $information['link-image-menu'] : '' }}" class="link-over-image is-not-relative">
+                                                                                        <div class="hero__content__wrapper align--middle-center">
+                                                                                            <div class="hero__content backdrop--radial">
+                                                                                                <h3 class="" style="letter-spacing: 2px; font-weight: 600;">
+                                                                                                    {{ isset($information['title-image-menu']) ? $information['title-image-menu'] : '' }}
+                                                                                                </h3>
+                                                                                                <p class="hero__description" style="letter-spacing: 2px;">
+                                                                                                    Shop Now
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                    <div class="image__fill fade-in-image" style="padding-top: 80.0%;
+                                                                                        background-image: url('{{ isset($information['image-menu']) ? $information['image-menu'] : '' }}');">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </details>
+                                                        </details-disclosure>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        </ul>
+                                        <hr style="background-color: #2f2f2f">
+                                        <ul class="menu-drawer__menu list-menu menu-foot" role="list">
+                                            @foreach (\App\Entity\Menu::showWithLocation('menu-footer') as $menu)
+                                                @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
+                                                    <li class="">
                                                         <a href="{{ $menuElement['url'] }}"
                                                            class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
                                                             <span>{{ $menuElement['title_show'] }}</span>
                                                         </a>
                                                     </li>
-                                                @else
-                                                    <details-disclosure>
-                                                        <details id="Details-menu-drawer-menu-item-2">
-                                                            <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
-                                                            <span>{{ $menuElement['title_show'] }}</span>
-                                                                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true"
-                                                                     focusable="false" role="presentation" class="icon icon-arrow"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                                                                          fill="currentColor">
-                                                                </svg>
-
-                                                                <svg aria-hidden="true" focusable="false" role="presentation"
-                                                                     class="icon icon-caret" viewBox="0 0 10 6">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                          d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
-                                                                          fill="currentColor">
-                                                                </svg>
-                                                            </summary>
-                                                            <div id="link-CLOTHING" class="menu-drawer__submenu motion-reduce"
-                                                                 tabindex="-1">
-                                                                <div class="menu-drawer__inner-submenu">
-                                                                    <button class="menu-drawer__close-button link link--text focus-inset"
-                                                                            aria-expanded="true">
-                                                                        {{ $menuElement['title_show'] }}
-                                                                    </button>
-                                                                    <ul class="menu-drawer__menu list-menu" role="list"
-                                                                        tabindex="-1">
-                                                                        @foreach ($menuElement['children'] as $elementparent)
-                                                                        <li><a href="{{ $elementparent['url'] }}"
-                                                                               class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
-                                                                                {{ $elementparent['title_show'] }}
-                                                                            </a></li>
-                                                                        @endforeach
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </details>
-                                                    </details-disclosure>
-                                                @endif
+                                                @endforeach
                                             @endforeach
-                                        @endforeach
-                                    </ul>
-                                </nav>
+                                        </ul>
+
+                                    </nav>
+                                </div>
                             </div>
                         </div>
+                    </details>
+                    <div style="display: inline-block; position: absolute; top: 16px" >
+                        @if(\Illuminate\Support\Facades\Auth::user())
+                            <a href="{{ route('dang-xuat', ['languageCurrent' => $languageCurrent]) }}" class="header__icon header__icon--account link focus-inset" title="logout">
+                                <img width="22px" src="{{ asset('site/logout.png') }}" alt="">
+
+                            </a>
+                        @else
+                            <a href="{{ route('login-site', ['languageCurrent' => $languageCurrent]) }}" class="header__icon header__icon--account link focus-inset">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation"
+                                     class="icon icon-account" fill="none" viewBox="0 0 18 19">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z"
+                                          fill="currentColor">
+                                </svg>
+
+                                <span class="visually-hidden">Log in</span>
+                            </a>
+                    @endif
                     </div>
-                </details>
-            </header-drawer>
+
+                </header-drawer>
+
+            </div>
             <h1 class="header__heading"><a href="/" class="header__heading-link link link--text focus-inset">
                     <img width="90" src="{{ asset('site/cacParis.png') }}" alt="">
                 </a>
@@ -326,7 +386,7 @@
                         </div>
                     </details>
                 </details-modal>
-
+                <div class="login__desktop">
                 @if(\Illuminate\Support\Facades\Auth::user())
                     <a href="{{ route('dang-xuat', ['languageCurrent' => $languageCurrent]) }}" class="header__icon header__icon--account link focus-inset" title="logout">
                         <img width="22px" src="{{ asset('site/logout.png') }}" alt="">
@@ -344,6 +404,7 @@
                     <span class="visually-hidden">Log in</span>
                 </a>
                 @endif
+                </div>
                 <a href="{{ route('order', ['languageCurrent' => $languageCurrent]) }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
                     <svg class="icon icon-cart" aria-hidden="true" focusable="false" role="presentation"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
