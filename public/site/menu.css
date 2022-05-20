@@ -2,22 +2,6 @@
 .header__left {
     display: inline-block;
 }
-@media only screen and (max-width: 989px) {
-    .header__inline-menu {
-        display: none;
-    }
-    .login__desktop{
-        display: none;
-    }
-   .menu-drawer {
-        max-width: 380px;
-        height: 100vh !important;
-        position: relative;
-   }
-
-}
-
-@media only screen and (max-width: 749px) {}
 
 .icon-caret {
     transform: rotateZ(-90deg);
@@ -80,7 +64,7 @@ ul.menu-drawer__menu.list-menu[tabindex='-1']>li a {
 }
 
 span.bar_icon{
-/* position: relative; */
+    /* position: relative; */
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -89,7 +73,7 @@ span.bar_icon{
     display: block;
     height: 3px;
     background: transparent;
-/* border-radius: 3px; */
+    /* border-radius: 3px; */
     width: 100%;
     width: 25px;
     left: 50%;
@@ -164,3 +148,50 @@ p.hero__description {
 .link-over-image{
     text-decoration: none;
 }
+.header .mobile-show{
+    display: none;
+}
+.header .mobile-hidden{
+    display: block;
+}
+@media only screen and (max-width: 989px) {
+    .header__inline-menu {
+        display: none;
+    }
+    .login__desktop{
+        display: none;
+    }
+   .menu-drawer {
+        max-width: 380px;
+        height: 100vh !important;
+        position: relative;
+   }
+   .header{
+       background: #000;
+   }
+   .header .mobile-show{
+       display: block;
+   }
+    .header .mobile-hidden{
+        display: none;
+    }
+   .header .header__icon .icon{
+       color: #fff;
+   }
+
+
+    span.bar_icon{
+        background: #fff;
+    }
+    span.bar_icon:before{
+        background: #fff;
+    }
+    span.bar_icon:after{
+        background: #fff;
+    }
+    details[open]>.search-modal{
+        background: #000
+    }
+}
+
+@media only screen and (max-width: 749px) {}
