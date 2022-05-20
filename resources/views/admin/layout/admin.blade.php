@@ -66,7 +66,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://vn3c.com">Vn3c</a>.</strong> All rights
+        <strong>Copyright
         reserved.
     </footer>
 </div>    <!--/.main-->

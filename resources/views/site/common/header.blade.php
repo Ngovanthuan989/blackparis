@@ -220,7 +220,9 @@
                                                                                         </div>
                                                                                     </a>
                                                                                     <div class="image__fill fade-in-image" style="padding-top: 80.0%;
-                                                                                        background-image: url('{{ isset($information['image-menu']) ? $information['image-menu'] : '' }}');">
+                                                                                        background-image: url('{{ isset($information['image-menu']) ? $information['image-menu'] : '' }}');
+                                                                                            background-size: cover;
+                                                                                            background-repeat: no-repeat;">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
