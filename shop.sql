@@ -225,7 +225,7 @@ CREATE TABLE `information` (
 --
 
 INSERT INTO `information` (`infor_id`, `slug_type_input`, `content`, `language`, `updated_at`) VALUES
-(1, 'logo', '/kcfinder-master/upload/images/cacParis.png', 'vn', '2022-05-14 06:09:06'),
+(1, 'logo', '/kcfinder-master/upload/images/', 'vn', '2022-05-14 06:09:06'),
 (2, 'logo', '/kcfinder-master/upload/images/untitled.png', 'en', '2022-05-10 14:06:49'),
 (3, 'icon', 'site/cacParis.png', 'vn', '2022-05-14 06:09:06'),
 (4, 'icon', 'site/cacParis.png', 'en', '2022-05-10 12:32:43'),
