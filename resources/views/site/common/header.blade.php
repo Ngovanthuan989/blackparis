@@ -283,7 +283,7 @@
                 </a>
             </h1>
             <h1 class="header__heading mobile-show"><a href="/" class="header__heading-link link link--text focus-inset">
-                    <img width="90" src="{{ asset('site/cacTrang.png') }}" alt="">
+                    <img width="90" src="{{ asset('site/cactrang.png') }}" alt="">
                 </a>
             </h1>
             <nav class="header__inline-menu">
