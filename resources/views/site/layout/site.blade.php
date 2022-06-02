@@ -242,7 +242,7 @@
 
 <div id="loading">
     <div id="preloader">
-        <img width="200" src="{{ asset('site/gifLogo.gif') }}" alt="">
+        <img width="400" src="{{ asset('site/gifLogo.gif') }}" alt="">
 
     </div>
 </div>
