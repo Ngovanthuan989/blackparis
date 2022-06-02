@@ -217,6 +217,8 @@
 
     <link href="{{ asset('site/s/files/1/0080/9035/3717/t/3/assets/base.css') }}" rel="stylesheet"
           type="text/css" media="all"/>
+    <link href="{{ asset('site/menu.css') }}" rel="stylesheet"
+          type="text/css" media="all"/>
     <link rel="preload" as="font"
           href="{{ asset('site/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2') }}"
           type="font/woff2" crossorigin>
@@ -230,6 +232,7 @@
     <script async type="text/javascript" src="{{ asset('site/eg/script.js') }}"></script>
 
     <script async src="{{ asset('site/onsite/js/klaviyo.js') }}"></script>
+    <script src="{{ asset('site/common.js') }}"></script>
 
     <!-- END app app block -->
 
