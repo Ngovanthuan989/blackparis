@@ -158,7 +158,7 @@ class ProductController extends AdminController
                 'post_id' => $postId,
                 'code' =>  $codes[$id],
                 'price' =>  $prices[$id],
-                'discount' =>  $discount[$id],
+//                'discount' =>  $discount[$id],
                 'image_list' =>  $imageList[$id],
                 'properties' =>  $properties[$id],
             ]);
@@ -354,7 +354,7 @@ class ProductController extends AdminController
                 ->update([
                 'code' =>  $codes[$id],
                 'price' =>  $prices[$id],
-                'discount' =>  $discount[$id],
+//                'discount' =>  $discount[$id],
                 'image_list' =>  $imageList[$id],
                 'properties' =>  $properties[$id],
             ]);
